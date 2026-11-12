@@ -1,0 +1,21 @@
+<p class="hint">
+  <span class="swatch"></span>
+  Employees who worked less than {{ threshold }} hours
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class="numeric">Total time worked (h)</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (employee of employees(); track employee.name) {
+      <tr [class.low-hours]="employee.totalHours < threshold">
+        <td>{{ employee.name }}</td>
+        <td class="numeric">{{ employee.totalHours | number: '1.0-2' }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

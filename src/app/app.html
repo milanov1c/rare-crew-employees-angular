@@ -1,0 +1,23 @@
+<main class="page">
+  <h1>Employees by total time worked</h1>
+
+  @if (loading()) {
+    <p class="status">Loading...</p>
+  } @else if (error()) {
+    <p class="status status--error">{{ error() }}</p>
+  } @else if (employees().length === 0) {
+    <p class="status">No time entries found.</p>
+  } @else {
+    <div class="layout">
+      <section class="card">
+        <h2>Total time worked</h2>
+        <app-employees-table [employees]="employees()" />
+      </section>
+
+      <section class="card">
+        <h2>Percentage of total time worked</h2>
+        <app-employees-pie-chart [employees]="employees()" />
+      </section>
+    </div>
+  }
+</main>

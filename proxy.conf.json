@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://rc-vault-fap-live-1.azurewebsites.net",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
